@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
+  await page.goto('https://demo.playwright.dev/todomvc');
   await expect(page.getByRole('textbox', { name: 'What needs to be done?' })).toBeVisible();
   await page.getByRole('textbox', { name: 'What needs to be done?' }).click();
   await page.getByRole('textbox', { name: 'What needs to be done?' }).fill('Milk');
