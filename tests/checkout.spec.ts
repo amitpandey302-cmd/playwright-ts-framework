@@ -1,19 +1,7 @@
-import {test, expect} from '@playwright/test';
-import { LoginPage } from '../pages/LoginPage';
-import { InventoryPage } from '../pages/InventoryPage';
-import { CartPage } from '../pages/CartPage';
-import { CheckOutPage } from '../pages/CheckoutPage';
-import { users } from '../test-data/users';
+import {test, expect} from '../fixtures/pages'
 
-test('User can buy a packback', async({page})=>{
-    const loginPage = new LoginPage(page);
-    const inventoryPage = new InventoryPage(page);
-    const cartPage = new CartPage(page);
-    const checkOutPage = new CheckOutPage(page);
 
-    await loginPage.goto();
-    await loginPage.login(users.standard.username, users.standard.password);
-    await expect(page.getByText('Products')).toBeVisible();
+test('User can buy a backback', async({inventoryPage, cartPage, checkOutPage})=>{    
 
     await inventoryPage.addToCart('Sauce Labs Backpack');
     await expect(inventoryPage.cartBadge).toHaveText('1');
