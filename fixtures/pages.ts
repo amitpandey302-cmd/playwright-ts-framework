@@ -19,7 +19,7 @@ export const test = base.extend<PageFixtures>({
     inventoryPage: async({page}, use)=>{
         const loginPage = new LoginPage(page);
         loginPage.goto();
-        loginPage.login(users.standard.username, users.standard.password);
+        await loginPage.login(users.standard.username, users.standard.password);
         await use(new InventoryPage(page));
     },
     cartPage: async({page}, use)=>{
