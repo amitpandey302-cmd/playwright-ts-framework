@@ -7,12 +7,14 @@ export class LoginPage{
     readonly loginbttn: Locator;
     readonly errormsg: Locator;
     
+    
     constructor(page:Page){
         this.page = page;
         this.usernameInput = page.getByPlaceholder('Username');
         this.passwordInput = page.getByPlaceholder('Password');
         this.loginbttn = page.getByRole('button',{name:'Login'});
         this.errormsg = page.locator('[data-test="error"]');
+       
     }
 
     async goto(){
@@ -24,4 +26,6 @@ export class LoginPage{
         await this.passwordInput.fill(password);
         await this.loginbttn.click();
     }
+
+    
 }

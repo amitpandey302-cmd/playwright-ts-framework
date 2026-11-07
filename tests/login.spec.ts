@@ -8,7 +8,7 @@ test.describe('login', () => {
     test.afterEach(async({}, testInfo) =>{
         console.log(`${testInfo.title}:${testInfo.status}`);
     });
-    test.beforeEach(async ({ page }) => {
+    test.beforeEach(async ({page}) => {
         loginPage = new LoginPage(page);    
         loginPage.goto();
     });
